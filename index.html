@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kira Tselishcheva — Creative Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F6F5F2;
+    --ink:#16150F;
+    --ink-70:rgba(22,21,15,.70);
+    --ink-50:rgba(22,21,15,.50);
+    --ink-35:rgba(22,21,15,.35);
+    --rule:rgba(22,21,15,.16);
+    --rule-soft:rgba(22,21,15,.09);
+    --serif:"Instrument Serif",Georgia,serif;
+    --sans:"Archivo",-apple-system,Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --mx:clamp(20px,6vw,120px);
+    --maxw:1320px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--ink);color:var(--paper);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--mx);}
+
+  /* ---------- mono meta ---------- */
+  .mono{
+    font-family:var(--mono);
+    font-weight:400;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-70);
+  }
+
+  /* ---------- sticky bar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,245,242,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar-in{
+    max-width:var(--maxw);margin:0 auto;padding:0 var(--mx);
+    height:46px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .bar .name{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;}
+  .bar .right{display:flex;gap:22px;align-items:center;}
+  .bar a.jump{color:var(--ink-50);text-decoration:none;transition:color .25s;}
+  .bar a.jump:hover{color:var(--ink);}
+  .bar .right .sep{color:var(--ink-35);}
+  .progress{position:absolute;left:0;bottom:-1px;height:1px;background:var(--ink);width:0%;}
+
+  /* language switch */
+  .lang{display:inline-flex;align-items:center;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+  .lang button{
+    appearance:none;border:0;background:transparent;cursor:pointer;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-50);padding:5px 11px;line-height:1;transition:color .2s,background .2s;
+  }
+  .lang button.active{background:var(--ink);color:var(--paper);}
+  .lang button:not(.active):hover{color:var(--ink);}
+
+  @media(max-width:720px){ .bar .right .jump{display:none;} }
+
+  /* ---------- masthead ---------- */
+  .mast{padding:clamp(34px,7vw,78px) 0 0;}
+  .kicker{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;}
+  .mast h1{
+    font-family:var(--serif);
+    font-weight:400;
+    line-height:.9;
+    letter-spacing:-.01em;
+    margin:clamp(26px,5vw,54px) 0 0;
+    font-size:clamp(48px,14.5vw,228px);
+  }
+  .mast h1 .em{font-style:italic;}
+  .mast .role{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    margin-top:clamp(18px,3vw,30px);
+    padding-bottom:22px;border-bottom:1px solid var(--ink);
+  }
+  .mast .role .title{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(24px,4vw,46px);line-height:1;color:var(--ink);
+  }
+  .mast .role .statement{
+    max-width:42ch;font-size:14.5px;line-height:1.5;color:var(--ink-70);
+  }
+
+  /* contact strip */
+  .contact{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-bottom:1px solid var(--rule);
+  }
+  .contact .cell{
+    padding:16px 0;
+    border-right:1px solid var(--rule-soft);
+  }
+  .contact .cell:last-child{border-right:0;}
+  .contact .cell .lab{display:block;margin-bottom:7px;}
+  .contact .cell .val{font-size:14px;color:var(--ink);text-decoration:none;display:inline-block;}
+  a.val{transition:opacity .2s;} a.val:hover{opacity:.55;}
+  @media(max-width:720px){
+    .contact{grid-template-columns:1fr 1fr;}
+    .contact .cell{padding:14px 0;border-right:0;border-bottom:1px solid var(--rule-soft);}
+    .contact .cell:nth-child(odd){padding-right:16px;}
+  }
+
+  /* ---------- contents ---------- */
+  .contents{padding:clamp(40px,7vw,96px) 0 clamp(20px,4vw,40px);}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;}
+  .sec-head h2{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin:0;color:var(--ink);}
+  .idx-row{
+    display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;
+    padding:clamp(18px,3vw,30px) 0;
+    border-top:1px solid var(--rule);
+    text-decoration:none;color:inherit;
+    transition:padding-left .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .idx-row:last-of-type{border-bottom:1px solid var(--rule);}
+  .idx-row .num{font-family:var(--mono);font-size:12px;color:var(--ink-50);}
+  .idx-row .ti{
+    font-family:var(--serif);font-size:clamp(26px,4.4vw,52px);line-height:1.02;letter-spacing:-.01em;
+    transition:opacity .3s;
+  }
+  .idx-row .meta{text-align:right;}
+  .idx-row .meta .arrow{display:inline-block;margin-left:14px;transition:transform .4s cubic-bezier(.2,.7,.2,1);}
+  .idx-row:hover{padding-left:18px;}
+  .idx-row:hover .meta .arrow{transform:translateX(8px);}
+  @media(max-width:720px){
+    .idx-row{grid-template-columns:40px 1fr;gap:14px;}
+    .idx-row .meta{grid-column:1 / -1;text-align:left;}
+    .idx-row .meta .arrow{display:none;}
+  }
+
+  /* ---------- case study ---------- */
+  .case{padding:clamp(56px,9vw,128px) 0 0;}
+  .case-top{
+    display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;
+    border-top:1px solid var(--ink);padding-top:22px;
+  }
+  .case-top .cnum{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--ink);}
+  .case-top h3{
+    font-family:var(--serif);font-weight:400;line-height:.96;letter-spacing:-.012em;
+    margin:0;font-size:clamp(40px,8.4vw,118px);
+  }
+  .case-meta{
+    display:flex;gap:8px 28px;flex-wrap:wrap;margin-top:20px;
+  }
+  .case-meta .item{display:flex;flex-direction:column;gap:4px;}
+  .case-meta .item .v{font-size:14px;color:var(--ink);}
+  @media(max-width:720px){ .case-top{grid-template-columns:40px 1fr;gap:14px;} }
+
+  /* image placeholder */
+  .plate{
+    margin-top:clamp(26px,4vw,48px);
+    aspect-ratio:16/8.4;width:100%;
+    position:relative;overflow:hidden;
+    background-color:#e7e5df;
+    background-image:repeating-linear-gradient(135deg,rgba(22,21,15,.045) 0 2px,transparent 2px 11px);
+    border:1px solid var(--rule);
+    display:flex;align-items:flex-end;justify-content:space-between;
+    padding:16px;cursor:default;
+    transition:background-color .4s;
+  }
+  .plate:hover{background-color:#e2e0d9;}
+  .plate .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50);}
+  .plate .corner{font-family:var(--mono);font-size:11px;color:var(--ink-35);}
+  .plate.tall{aspect-ratio:4/3;}
+
+  .plate-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,22px);margin-top:clamp(12px,2vw,22px);}
+  .plate-row .plate{margin-top:0;aspect-ratio:4/3.4;}
+  @media(max-width:620px){ .plate-row{grid-template-columns:1fr;} }
+
+  /* PAR rows */
+  .par{margin-top:clamp(34px,5vw,60px);}
+  .par-row{
+    display:grid;grid-template-columns:minmax(120px,2.4fr) 7.6fr;gap:24px;
+    padding:clamp(22px,3.2vw,34px) 0;
+    border-top:1px solid var(--rule);
+  }
+  .par-row:last-child{border-bottom:1px solid var(--rule);}
+  .par-row .lab{display:flex;flex-direction:column;gap:8px;}
+  .par-row .lab .n{font-family:var(--mono);font-size:11px;color:var(--ink-35);letter-spacing:.1em;}
+  .par-row .lab .t{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:500;}
+  .par-row .body p{
+    margin:0;font-size:clamp(17px,2vw,21px);line-height:1.5;letter-spacing:-.005em;
+    max-width:62ch;text-wrap:pretty;
+  }
+  .par-row.result .body p{font-family:var(--serif);font-size:clamp(22px,3vw,32px);line-height:1.28;color:var(--ink);max-width:32ch;}
+  .par-row .body .lead{font-weight:500;}
+  .par-row .body ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px;max-width:62ch;}
+  .par-row .body li{
+    position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:var(--ink-70);
+  }
+  .par-row .body li::before{
+    content:attr(data-i);position:absolute;left:0;top:1px;
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-35);letter-spacing:.05em;
+  }
+  @media(max-width:720px){
+    .par-row{grid-template-columns:1fr;gap:14px;}
+  }
+
+  /* ---------- footer ---------- */
+  .foot{margin-top:clamp(70px,11vw,150px);border-top:1px solid var(--ink);padding:clamp(40px,6vw,80px) 0 40px;}
+  .foot .big{
+    font-family:var(--serif);font-size:clamp(26px,3.4vw,44px);line-height:1.08;letter-spacing:-.01em;margin:0 0 clamp(30px,5vw,56px);
+  }
+  .foot .big a{font-size:.78em;}
+  .foot .big a{color:inherit;text-decoration:none;border-bottom:2px solid var(--rule);transition:border-color .3s;}
+  .foot .big a:hover{border-color:var(--ink);}
+  .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--rule);padding-top:20px;}
+  .foot-grid .cell .lab{display:block;margin-bottom:7px;}
+  .foot-grid .cell a,.foot-grid .cell span{font-size:12px;color:var(--ink);text-decoration:none;letter-spacing:.005em;}
+  .foot-grid .cell a:hover{opacity:.55;}
+  .colophon{margin-top:clamp(40px,6vw,72px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .colophon .mono{font-size:10px;}
+  @media(max-width:720px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
+  .rev.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    .rev{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- sticky bar -->
+  <div class="bar">
+    <div class="bar-in">
+      <span class="name i18n" data-en='Kira Tselishcheva' data-ru='Кира Целищева'>Kira Tselishcheva</span>
+      <div class="right">
+        <a class="jump mono i18n" href="#work" data-en='Work' data-ru='Работы'>Work</a>
+        <span class="sep mono">/</span>
+        <a class="jump mono i18n" href="#contact" data-en='Contact' data-ru='Контакты'>Contact</a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="ru">RU</button>
+        </div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <!-- masthead -->
+  <header class="mast wrap" data-screen-label="Masthead">
+    <div class="kicker">
+      <span class="mono i18n" data-en='Selected Work — Three Case Studies' data-ru='Избранные работы — три кейса'>Selected Work — Three Case Studies</span>
+      <span class="mono">Portfolio / MMXXV</span>
+    </div>
+
+    <h1 class="i18n" data-en='Kira<br /><span class="em">Tselishcheva</span>' data-ru='Кира<br /><span class="em">Целищева</span>'>Kira<br /><span class="em">Tselishcheva</span></h1>
+
+    <div class="role">
+      <span class="title i18n" data-en='Creative Producer' data-ru='Креативный продюсер'>Creative Producer</span>
+      <p class="statement i18n" data-en='Producing cultural experiences where art, technology, and complex human systems have to work in the real world — on time, on site, without escalation.' data-ru='Продюсирую культурные проекты на стыке искусства, технологий и сложных человеческих систем — так, чтобы всё работало в реальности: в срок, на площадке, без эскалаций.'>Producing cultural experiences where art, technology, and complex human systems have to work in the real world — on time, on site, without escalation.</p>
+    </div>
+
+    <div class="contact">
+      <div class="cell">
+        <span class="lab mono i18n" data-en='Discipline' data-ru='Направление'>Discipline</span>
+        <span class="val i18n" data-en='Production · Curation' data-ru='Продюсирование · Кураторство'>Production · Curation</span>
+      </div>
+      <div class="cell">
+        <span class="lab mono i18n" data-en='Operating' data-ru='География'>Operating</span>
+        <span class="val i18n" data-en='Rome · Tbilisi · Milan' data-ru='Рим · Тбилиси · Милан'>Rome · Tbilisi · Milan</span>
+      </div>
+      <div class="cell">
+        <span class="lab mono i18n" data-en='Email' data-ru='Почта'>Email</span>
+        <a class="val" href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>
+      </div>
+      <div class="cell">
+        <span class="lab mono i18n" data-en='Availability' data-ru='Занятость'>Availability</span>
+        <span class="val i18n" data-en='Open for 2026' data-ru='Открыта для 2026'>Open for 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- contents -->
+  <section class="contents wrap" id="work" data-screen-label="Contents">
+    <div class="sec-head rev">
+      <h2 class="i18n" data-en='Index of Work' data-ru='Указатель работ'>Index of Work</h2>
+      <span class="mono">01 — 03</span>
+    </div>
+
+    <a class="idx-row rev" href="#case-01">
+      <span class="num">01</span>
+      <span class="ti">Serpenti Infinito<br />VR Experience</span>
+      <span class="meta mono i18n" data-en='Rome — 2025<span class="arrow">→</span>' data-ru='Рим — 2025<span class="arrow">→</span>'>Rome — 2025<span class="arrow">→</span></span>
+    </a>
+    <a class="idx-row rev" href="#case-02">
+      <span class="num">02</span>
+      <span class="ti">Instruments of<br />Perception</span>
+      <span class="meta mono i18n" data-en='Tbilisi — 2025<span class="arrow">→</span>' data-ru='Тбилиси — 2025<span class="arrow">→</span>'>Tbilisi — 2025<span class="arrow">→</span></span>
+    </a>
+    <a class="idx-row rev" href="#case-03">
+      <span class="num">03</span>
+      <span class="ti">Surveillance</span>
+      <span class="meta mono i18n" data-en='Milan — 2025<span class="arrow">→</span>' data-ru='Милан — 2025<span class="arrow">→</span>'>Milan — 2025<span class="arrow">→</span></span>
+    </a>
+  </section>
+
+  <main class="wrap">
+
+    <!-- CASE 01 -->
+    <article class="case" id="case-01" data-screen-label="Case 01 — Serpenti Infinito">
+      <div class="case-top rev">
+        <span class="cnum">01 / 03</span>
+        <div>
+          <span class="mono i18n" style="display:block;margin-bottom:14px;" data-en='VR Installation · Heritage Brand · Museum Context' data-ru='VR-инсталляция · Ювелирный дом · Музейный контекст'>VR Installation · Heritage Brand · Museum Context</span>
+          <h3>Serpenti<br />Infinito</h3>
+        </div>
+      </div>
+
+      <div class="case-meta rev" style="margin-left:88px;">
+        <div class="item"><span class="lab mono i18n" data-en='Client' data-ru='Клиент'>Client</span><span class="v">BVLGARI</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Venue' data-ru='Площадка'>Venue</span><span class="v i18n" data-en='National Etruscan Museum' data-ru='Национальный этрусский музей'>National Etruscan Museum</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='City' data-ru='Город'>City</span><span class="v i18n" data-en='Rome, IT' data-ru='Рим, Италия'>Rome, IT</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Year' data-ru='Год'>Year</span><span class="v">2025</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Role' data-ru='Роль'>Role</span><span class="v i18n" data-en='Operational Design &amp; Documentation' data-ru='Операционный дизайн и документация'>Operational Design &amp; Documentation</span></div>
+      </div>
+
+      <div class="plate rev" aria-label="Image placeholder">
+        <span class="tag i18n" data-en='[ VR installation — gallery view ]' data-ru='[ VR-инсталляция — вид зала ]'>[ VR installation — gallery view ]</span>
+        <span class="corner">FIG. 01.1</span>
+      </div>
+
+      <div class="par">
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 01.1</span><span class="t i18n" data-en='Problem' data-ru='Проблема'>Problem</span></div>
+          <div class="body">
+            <p class="i18n" data-en='VR installations in museum contexts fail for a predictable reason: technical complexity lands in non-technical hands. Setups break, no one on site can diagnose them, and the visitor experience degrades in front of a paying audience.' data-ru='VR-инсталляции в музеях ломаются по предсказуемой причине: техническая сложность оказывается в руках нетехнических людей. Системы выходят из строя, на площадке некому их диагностировать, и впечатление зрителя деградирует на глазах у платящей публики.'>VR installations in museum contexts fail for a predictable reason: technical complexity lands in non-technical hands. Setups break, no one on site can diagnose them, and the visitor experience degrades in front of a paying audience.</p>
+          </div>
+        </div>
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 01.2</span><span class="t i18n" data-en='Approach' data-ru='Подход'>Approach</span></div>
+          <div class="body">
+            <p class="lead i18n" data-en='Designed full operational documentation engineered for two distinct user groups.' data-ru='Разработала полную операционную документацию под две разные группы пользователей.'>Designed full operational documentation engineered for two distinct user groups.</p>
+            <ul>
+              <li data-i="A" class="i18n" data-en='Technical crew — hardware checklists, network and power diagrams, troubleshooting trees, and daily operating routines.' data-ru='Техническая команда — чек-листы оборудования, схемы сети и питания, деревья диагностики и ежедневные регламенты.'>Technical crew — hardware checklists, network and power diagrams, troubleshooting trees, and daily operating routines.</li>
+              <li data-i="B" class="i18n" data-en='Visitors — onboarding designed around live, staff-led interaction rather than written instruction.' data-ru='Посетители — онбординг через живое взаимодействие с персоналом, а не через письменные инструкции.'>Visitors — onboarding designed around live, staff-led interaction rather than written instruction.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="par-row result rev">
+          <div class="lab"><span class="n">§ 01.3</span><span class="t i18n" data-en='Result' data-ru='Результат'>Result</span></div>
+          <div class="body">
+            <p class="i18n" data-en='Deployed across two venues — event and hotel — with zero escalations to the development team.' data-ru='Развёрнуто на двух площадках — на ивенте и в отеле — с нулём эскалаций к команде разработки.'>Deployed across two venues — event and hotel — with zero escalations to the development team.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 02 -->
+    <article class="case" id="case-02" data-screen-label="Case 02 — Instruments of Perception">
+      <div class="case-top rev">
+        <span class="cnum">02 / 03</span>
+        <div>
+          <span class="mono i18n" style="display:block;margin-bottom:14px;" data-en='Group Exhibition · Cross-Border Production · Politically Sensitive' data-ru='Групповая выставка · Трансграничное производство · Политически чувствительно'>Group Exhibition · Cross-Border Production · Politically Sensitive</span>
+          <h3>Instruments of<br />Perception</h3>
+        </div>
+      </div>
+
+      <div class="case-meta rev" style="margin-left:88px;">
+        <div class="item"><span class="lab mono i18n" data-en='Partners' data-ru='Партнёры'>Partners</span><span class="v">Oasis · One Caucasus · Library about Georgia</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Venue' data-ru='Площадка'>Venue</span><span class="v">Library about Georgia</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='City' data-ru='Город'>City</span><span class="v i18n" data-en='Tbilisi, GE' data-ru='Тбилиси, Грузия'>Tbilisi, GE</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Date' data-ru='Дата'>Date</span><span class="v i18n" data-en='October 2025' data-ru='Октябрь 2025'>October 2025</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Role' data-ru='Роль'>Role</span><span class="v i18n" data-en='Producer · Curator · Stakeholder Lead' data-ru='Продюсер · Куратор · Координатор стейкхолдеров'>Producer · Curator · Stakeholder Lead</span></div>
+      </div>
+
+      <div class="plate-row rev">
+        <div class="plate" aria-label="Image placeholder">
+          <span class="tag i18n" data-en='[ Room I — light ]' data-ru='[ Зал I — свет ]'>[ Room I — light ]</span>
+          <span class="corner">FIG. 02.1</span>
+        </div>
+        <div class="plate" aria-label="Image placeholder">
+          <span class="tag i18n" data-en='[ Room II — sound ]' data-ru='[ Зал II — звук ]'>[ Room II — sound ]</span>
+          <span class="corner">FIG. 02.2</span>
+        </div>
+      </div>
+
+      <div class="par">
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 02.1</span><span class="t i18n" data-en='Problem' data-ru='Проблема'>Problem</span></div>
+          <div class="body">
+            <p class="i18n" data-en='An international cultural project staged in Georgia, 2025: three stakeholders with conflicting logics — a European fund, a Georgian organization, and the venue itself — inside a politically sensitive context, housed in a residential building with real physical constraints and actual neighbors.' data-ru='Международный культурный проект в Грузии, 2025: три стейкхолдера с конфликтующими логиками — европейский фонд, грузинская организация и сама площадка — в политически чувствительном контексте, в жилом доме с реальными физическими ограничениями и настоящими соседями.'>An international cultural project staged in Georgia, 2025: three stakeholders with conflicting logics — a European fund, a Georgian organization, and the venue itself — inside a politically sensitive context, housed in a residential building with real physical constraints and actual neighbors.</p>
+          </div>
+        </div>
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 02.2</span><span class="t i18n" data-en='Approach' data-ru='Подход'>Approach</span></div>
+          <div class="body">
+            <p class="lead i18n" data-en='Held the center of a project that could have fractured at any seam.' data-ru='Удерживала центр проекта, который мог развалиться по любому шву.'>Held the center of a project that could have fractured at any seam.</p>
+            <ul>
+              <li data-i="A" class="i18n" data-en='Managed communication between all three stakeholders, keeping conflicting agendas aligned to one event.' data-ru='Вела коммуникацию между всеми тремя стейкхолдерами, сводя конфликтующие повестки к одному событию.'>Managed communication between all three stakeholders, keeping conflicting agendas aligned to one event.</li>
+              <li data-i="B" class="i18n" data-en='Navigated cultural-political sensitivity across Russian artists, a Georgian venue, and European funding.' data-ru='Управляла культурно-политической чувствительностью: российские художники, грузинская площадка, европейское финансирование.'>Navigated cultural-political sensitivity across Russian artists, a Georgian venue, and European funding.</li>
+              <li data-i="C" class="i18n" data-en='Selected artists balancing concept, logistics, and context simultaneously.' data-ru='Отбирала художников, балансируя концепцию, логистику и контекст одновременно.'>Selected artists balancing concept, logistics, and context simultaneously.</li>
+              <li data-i="D" class="i18n" data-en='Designed three rooms — bespoke light, sound, and spatial solutions per artwork.' data-ru='Спроектировала три зала — индивидуальные световые, звуковые и пространственные решения под каждую работу.'>Designed three rooms — bespoke light, sound, and spatial solutions per artwork.</li>
+              <li data-i="E" class="i18n" data-en='Hired technical specialists to assess the building's load capacity.' data-ru='Привлекла технических специалистов для оценки несущей способности здания.'>Hired technical specialists to assess the building's load capacity.</li>
+              <li data-i="F" class="i18n" data-en='Personally negotiated with neighbors over noise and schedule.' data-ru='Лично договаривалась с соседями о шуме и графике.'>Personally negotiated with neighbors over noise and schedule.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="par-row result rev">
+          <div class="lab"><span class="n">§ 02.3</span><span class="t i18n" data-en='Result' data-ru='Результат'>Result</span></div>
+          <div class="body">
+            <p class="i18n" data-en='A multi-day event, open six hours daily — 300+ visitors, consistently positive reviews in person and online. Zero incidents.' data-ru='Многодневное событие, по шесть часов в день — 300+ посетителей, стабильно положительные отзывы вживую и в соцсетях. Ноль инцидентов.'>A multi-day event, open six hours daily — 300+ visitors, consistently positive reviews in person and online. Zero incidents.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 03 -->
+    <article class="case" id="case-03" data-screen-label="Case 03 — Surveillance">
+      <div class="case-top rev">
+        <span class="cnum">03 / 03</span>
+        <div>
+          <span class="mono i18n" style="display:block;margin-bottom:14px;" data-en='Curated Exhibition · Concept Origination · Two-Venue Format' data-ru='Кураторская выставка · Авторская концепция · Формат двух площадок'>Curated Exhibition · Concept Origination · Two-Venue Format</span>
+          <h3>Surveillance</h3>
+        </div>
+      </div>
+
+      <div class="case-meta rev" style="margin-left:88px;">
+        <div class="item"><span class="lab mono i18n" data-en='With' data-ru='Вместе с'>With</span><span class="v">NAMA &amp; Lito Studio</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Format' data-ru='Формат'>Format</span><span class="v i18n" data-en='Split across two venues' data-ru='Разделено на две площадки'>Split across two venues</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='City' data-ru='Город'>City</span><span class="v i18n" data-en='Milan, IT' data-ru='Милан, Италия'>Milan, IT</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Year' data-ru='Год'>Year</span><span class="v">2025</span></div>
+        <div class="item"><span class="lab mono i18n" data-en='Role' data-ru='Роль'>Role</span><span class="v i18n" data-en='Originator · Curator · Lead Producer' data-ru='Автор · Куратор · Ведущий продюсер'>Originator · Curator · Lead Producer</span></div>
+      </div>
+
+      <div class="plate rev tall" aria-label="Image placeholder">
+        <span class="tag i18n" data-en='[ Installation across two Milan venues ]' data-ru='[ Инсталляция на двух площадках Милана ]'>[ Installation across two Milan venues ]</span>
+        <span class="corner">FIG. 03.1</span>
+      </div>
+
+      <div class="par">
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 03.1</span><span class="t i18n" data-en='Problem' data-ru='Проблема'>Problem</span></div>
+          <div class="body">
+            <p class="i18n" data-en='Contemporary art about surveillance is hard to make accessible without losing its conceptual depth. The standard "white cube" format kills the very tension that defines the subject.' data-ru='Современное искусство о наблюдении трудно сделать доступным, не теряя концептуальной глубины. Стандартный формат «белого куба» убивает то самое напряжение, которое определяет тему.'>Contemporary art about surveillance is hard to make accessible without losing its conceptual depth. The standard "white cube" format kills the very tension that defines the subject.</p>
+          </div>
+        </div>
+        <div class="par-row rev">
+          <div class="lab"><span class="n">§ 03.2</span><span class="t i18n" data-en='Approach' data-ru='Подход'>Approach</span></div>
+          <div class="body">
+            <p class="lead i18n" data-en='Initiated the concept and led the project from zero to opening.' data-ru='Инициировала концепцию и провела проект с нуля до открытия.'>Initiated the concept and led the project from zero to opening.</p>
+            <ul>
+              <li data-i="A" class="i18n" data-en='Wrote the curatorial statement and selected 20+ international artists.' data-ru='Написала кураторский текст и отобрала 20+ международных художников.'>Wrote the curatorial statement and selected 20+ international artists.</li>
+              <li data-i="B" class="i18n" data-en='Split the exhibition across two Milan venues — a conceptual move making visitors physically enact the surveillance experience.' data-ru='Разделила выставку на две площадки Милана — концептуальный ход, заставляющий зрителя физически проживать опыт наблюдения.'>Split the exhibition across two Milan venues — a conceptual move making visitors physically enact the surveillance experience.</li>
+              <li data-i="C" class="i18n" data-en='When works proved technically incompatible with one venue during install, redistributed across locations and renegotiated with artists under time pressure.' data-ru='Когда часть работ оказалась технически несовместима с одной из площадок во время монтажа, перераспределила их между локациями и пересогласовала с художниками в условиях цейтнота.'>When works proved technically incompatible with one venue during install, redistributed across locations and renegotiated with artists under time pressure.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="par-row result rev">
+          <div class="lab"><span class="n">§ 03.3</span><span class="t i18n" data-en='Result' data-ru='Результат'>Result</span></div>
+          <div class="body">
+            <p class="i18n" data-en='Opened on schedule. The two-venue format was read as an intentional curatorial decision — not a logistical compromise.' data-ru='Открылась в срок. Формат двух площадок восприняли как осознанное кураторское решение, а не логистический компромисс.'>Opened on schedule. The two-venue format was read as an intentional curatorial decision — not a logistical compromise.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- footer -->
+  <footer class="foot wrap" id="contact" data-screen-label="Contact">
+    <p class="big i18n" data-en='Let's produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>' data-ru='Давайте сделаем<br />что-то <span style="font-style:italic">сложное.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>'>Let's produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a></p>
+    <div class="foot-grid">
+      <div class="cell"><span class="lab mono i18n" data-en='Email' data-ru='Почта'>Email</span><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a></div>
+      <div class="cell"><span class="lab mono i18n" data-en='Based' data-ru='База'>Based</span><span class="i18n" data-en='Rome · Tbilisi · Milan' data-ru='Рим · Тбилиси · Милан'>Rome · Tbilisi · Milan</span></div>
+      <div class="cell"><span class="lab mono">Instagram</span><a href="#">@kira.produces</a></div>
+      <div class="cell"><span class="lab mono i18n" data-en='Availability' data-ru='Занятость'>Availability</span><span class="i18n" data-en='Open for 2026' data-ru='Открыта для 2026'>Open for 2026</span></div>
+    </div>
+    <div class="colophon">
+      <span class="mono i18n" data-en='© 2025 Kira Tselishcheva — Creative Producer' data-ru='© 2025 Кира Целищева — Креативный продюсер'>© 2025 Kira Tselishcheva — Creative Producer</span>
+      <span class="mono i18n" data-en='Set in Instrument Serif · Archivo · JetBrains Mono' data-ru='Набрано: Instrument Serif · Archivo · JetBrains Mono'>Set in Instrument Serif · Archivo · JetBrains Mono</span>
+    </div>
+  </footer>
+
+<script>
+  // scroll progress
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+    progress.style.width = (p*100).toFixed(2) + '%';
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // reveal on scroll
+  var revs = document.querySelectorAll('.rev');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    revs.forEach(function(r){ io.observe(r); });
+  } else {
+    revs.forEach(function(r){ r.classList.add('in'); });
+  }
+
+  // ---------- language switch ----------
+  var i18nEls = document.querySelectorAll('.i18n');
+  var langButtons = document.querySelectorAll('.lang button');
+  function setLang(lang){
+    if(lang !== 'en' && lang !== 'ru') lang = 'en';
+    i18nEls.forEach(function(el){
+      var v = el.getAttribute('data-' + lang);
+      if(v != null) el.innerHTML = v;
+    });
+    document.documentElement.setAttribute('lang', lang);
+    langButtons.forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try{ localStorage.setItem('kira_lang', lang); }catch(e){}
+  }
+  langButtons.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  });
+  var saved = 'en';
+  try{ saved = localStorage.getItem('kira_lang') || 'en'; }catch(e){}
+  setLang(saved);
+</script>
+</body>
+</html>

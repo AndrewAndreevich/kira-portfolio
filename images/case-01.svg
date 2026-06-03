@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 840" width="1600" height="840">
+  <defs>
+    <pattern id="stripe" patternUnits="userSpaceOnUse" width="11" height="11" patternTransform="rotate(135)">
+      <rect width="11" height="11" fill="#e7e5df"/>
+      <rect width="2" height="11" fill="rgba(22,21,15,0.045)"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="840" fill="url(#stripe)"/>
+  <text x="800" y="400" font-family="monospace" font-size="18" fill="rgba(22,21,15,0.35)" text-anchor="middle" letter-spacing="3">BVLGARI SERPENTI INFINITO · VR INSTALLATION</text>
+  <text x="800" y="430" font-family="monospace" font-size="13" fill="rgba(22,21,15,0.25)" text-anchor="middle" letter-spacing="2">replace with actual photo → case-01.jpg</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" width="800" height="680">
+  <defs>
+    <pattern id="stripe" patternUnits="userSpaceOnUse" width="11" height="11" patternTransform="rotate(135)">
+      <rect width="11" height="11" fill="#e7e5df"/>
+      <rect width="2" height="11" fill="rgba(22,21,15,0.045)"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="680" fill="url(#stripe)"/>
+  <text x="400" y="325" font-family="monospace" font-size="16" fill="rgba(22,21,15,0.35)" text-anchor="middle" letter-spacing="3">INSTRUMENTS OF PERCEPTION</text>
+  <text x="400" y="350" font-family="monospace" font-size="14" fill="rgba(22,21,15,0.3)" text-anchor="middle" letter-spacing="2">ROOM I — LIGHT</text>
+  <text x="400" y="380" font-family="monospace" font-size="12" fill="rgba(22,21,15,0.2)" text-anchor="middle" letter-spacing="2">replace → case-02a.jpg</text>
+</svg>

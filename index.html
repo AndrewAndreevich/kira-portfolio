@@ -192,6 +192,23 @@
   /* image inside plate */
   .plate-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;}
 
+  /* pdf link */
+  .pdf-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-50);text-decoration:none;
+    border:1px solid var(--rule);border-radius:2px;
+    padding:5px 9px;margin-top:18px;
+    transition:color .2s,border-color .2s;
+  }
+  .pdf-link:hover{color:var(--ink);border-color:rgba(22,21,15,.4);}
+  .pdf-link svg{flex-shrink:0;}
+
+  /* mobile: fix case-meta indentation */
+  @media(max-width:720px){
+    .case-meta{margin-left:54px !important;}
+  }
+
   /* PAR rows */
   .par{margin-top:clamp(34px,5vw,60px);}
   .par-row{
@@ -341,6 +358,12 @@
         <div class="item"><span class="lab mono i18n" data-en='City' data-ru='Город'>City</span><span class="v i18n" data-en='Rome, IT' data-ru='Рим, Италия'>Rome, IT</span></div>
         <div class="item"><span class="lab mono i18n" data-en='Year' data-ru='Год'>Year</span><span class="v">2025</span></div>
         <div class="item"><span class="lab mono i18n" data-en='Role' data-ru='Роль'>Role</span><span class="v i18n" data-en='Operational Design &amp; Documentation' data-ru='Операционный дизайн и документация'>Operational Design &amp; Documentation</span></div>
+        <div class="item" style="align-self:flex-end;">
+          <a class="pdf-link" href="pdf/Shared_EN_Bvlgari_Serpenti_Guidelines_Evento_+_Hotel_Shanghai_1.pdf" target="_blank" rel="noopener" aria-label="Open project PDF">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="10" height="12" rx="0.5" stroke="currentColor"/><line x1="2.5" y1="4.5" x2="8.5" y2="4.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="6.5" x2="8.5" y2="6.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="8.5" x2="6.5" y2="8.5" stroke="currentColor" stroke-width="0.8"/></svg>
+            PDF
+          </a>
+        </div>
       </div>
 
       <div class="plate rev" aria-label="Image placeholder">
@@ -391,6 +414,12 @@
         <div class="item"><span class="lab mono i18n" data-en='City' data-ru='Город'>City</span><span class="v i18n" data-en='Tbilisi, GE' data-ru='Тбилиси, Грузия'>Tbilisi, GE</span></div>
         <div class="item"><span class="lab mono i18n" data-en='Date' data-ru='Дата'>Date</span><span class="v i18n" data-en='October 2025' data-ru='Октябрь 2025'>October 2025</span></div>
         <div class="item"><span class="lab mono i18n" data-en='Role' data-ru='Роль'>Role</span><span class="v i18n" data-en='Producer · Curator · Stakeholder Lead' data-ru='Продюсер · Куратор · Координатор стейкхолдеров'>Producer · Curator · Stakeholder Lead</span></div>
+        <div class="item" style="align-self:flex-end;">
+          <a class="pdf-link" href="pdf/Residency Description Instruments of Perception.pdf" target="_blank" rel="noopener" aria-label="Open project PDF">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="10" height="12" rx="0.5" stroke="currentColor"/><line x1="2.5" y1="4.5" x2="8.5" y2="4.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="6.5" x2="8.5" y2="6.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="8.5" x2="6.5" y2="8.5" stroke="currentColor" stroke-width="0.8"/></svg>
+            PDF
+          </a>
+        </div>
       </div>
 
       <div class="plate-row rev">
@@ -490,12 +519,19 @@
 
   <!-- footer -->
   <footer class="foot wrap" id="contact" data-screen-label="Contact">
-    <p class="big i18n" data-en='Let's produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>' data-ru='Давайте сделаем<br />что-то <span style="font-style:italic">сложное.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>'>Let's produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a></p>
+    <p class="big i18n" data-en='Let&#39;s produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>' data-ru='Давайте сделаем<br />что-то <span style="font-style:italic">сложное.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a>'>Let&#39;s produce<br />something <span style="font-style:italic">difficult.</span><br /><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a></p>
     <div class="foot-grid">
       <div class="cell"><span class="lab mono i18n" data-en='Email' data-ru='Почта'>Email</span><a href="mailto:hello@kira-tselishcheva.com">hello@kira-tselishcheva.com</a></div>
       <div class="cell"><span class="lab mono i18n" data-en='Based' data-ru='База'>Based</span><span class="i18n" data-en='Rome · Tbilisi · Milan' data-ru='Рим · Тбилиси · Милан'>Rome · Tbilisi · Milan</span></div>
       <div class="cell"><span class="lab mono">Instagram</span><a href="#">@kira.produces</a></div>
       <div class="cell"><span class="lab mono i18n" data-en='Availability' data-ru='Занятость'>Availability</span><span class="i18n" data-en='Open for 2026' data-ru='Открыта для 2026'>Open for 2026</span></div>
+      <div class="cell">
+        <span class="lab mono i18n" data-en='Portfolio' data-ru='Портфолио'>Portfolio</span>
+        <a href="pdf/Portfolio 2026.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;">
+          <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="10" height="12" rx="0.5" stroke="currentColor"/><line x1="2.5" y1="4.5" x2="8.5" y2="4.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="6.5" x2="8.5" y2="6.5" stroke="currentColor" stroke-width="0.8"/><line x1="2.5" y1="8.5" x2="6.5" y2="8.5" stroke="currentColor" stroke-width="0.8"/></svg>
+          <span class="i18n" data-en='Portfolio 2026' data-ru='Портфолио 2026'>Portfolio 2026</span>
+        </a>
+      </div>
     </div>
     <div class="colophon">
       <span class="mono i18n" data-en='© 2025 Kira Tselishcheva — Creative Producer' data-ru='© 2025 Кира Целищева — Креативный продюсер'>© 2025 Kira Tselishcheva — Creative Producer</span>

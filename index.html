@@ -274,8 +274,8 @@
         <span class="sep mono">/</span>
         <a class="jump mono i18n" href="#contact" data-en='Contact' data-ru='Контакты'>Contact</a>
         <div class="lang" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <button type="button" data-lang="ru">RU</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="ru" class="active">RU</button>
         </div>
       </div>
       <div class="progress" id="progress"></div>
@@ -392,7 +392,7 @@
         <div class="par-row result rev">
           <div class="lab"><span class="n">§ 01.3</span><span class="t i18n" data-en='Result' data-ru='Результат'>Result</span></div>
           <div class="body">
-            <p class="i18n" data-en='Deployed across two venues — event and hotel — with zero escalations to the development team.' data-ru='Развёрнуто на двух площадках — на ивенте и в отеле — с нулём эскалаций к команде разработки.'>Deployed across two venues — event and hotel — with zero escalations to the development team.</p>
+            <p class="i18n" data-en='Operational guidelines and tailored documentation eliminated friction at every level — no procedural breakdowns, no compromised visitor experience. Both venues ran without a single escalation, and the team maintained full coherence from first setup to final day.' data-ru='Разработанные регламенты и пользовательская документация устранили трение на всех уровнях реализации — ни одного процедурного сбоя, ни одного испорченного пользовательского опыта. Обе площадки отработали без единой эскалации, а команда сохранила слаженность от первого запуска до последнего дня.'>Разработанные регламенты и пользовательская документация устранили трение на всех уровнях реализации — ни одного процедурного сбоя, ни одного испорченного пользовательского опыта. Обе площадки отработали без единой эскалации, а команда сохранила слаженность от первого запуска до последнего дня.</p>
           </div>
         </div>
       </div>
@@ -429,7 +429,7 @@
           <span class="corner">FIG. 02.1</span>
         </div>
         <div class="plate" aria-label="Image placeholder">
-          <img src="images/case-02b-r2.jpg" alt="Instruments of Perception — Room II sound" class="plate-img" />
+          <img src="images/case-02b-r3.jpg" alt="Instruments of Perception — Room II sound" class="plate-img" />
           <span class="tag i18n" data-en='[ Room II — sound ]' data-ru='[ Зал II — звук ]'>[ Room II — sound ]</span>
           <span class="corner">FIG. 02.2</span>
         </div>
@@ -510,7 +510,7 @@
         <div class="par-row result rev">
           <div class="lab"><span class="n">§ 03.3</span><span class="t i18n" data-en='Result' data-ru='Результат'>Result</span></div>
           <div class="body">
-            <p class="i18n" data-en='Opened on schedule. The two-venue format was read as an intentional curatorial decision — not a logistical compromise.' data-ru='Открылась в срок. Формат двух площадок восприняли как осознанное кураторское решение, а не логистический компромисс.'>Opened on schedule. The two-venue format was read as an intentional curatorial decision — not a logistical compromise.</p>
+            <p class="i18n" data-en='The exhibition opened on schedule with 20+ artists across two venues — and the forced redistribution during install left no trace in the public experience. Visitors read the split format as deliberate curatorial logic: moving between locations, they physically enacted the surveillance experience the works described. A production constraint became the conceptual spine of the show.' data-ru='Выставка открылась в срок — 20+ художников на двух площадках, и вынужденное перераспределение работ в ходе монтажа не оставило следа в публичном восприятии. Зрители прочитали формат двух площадок как осознанный кураторский жест: перемещаясь между локациями, они физически проживали опыт наблюдения, который описывали работы. Производственное ограничение стало концептуальным стержнем выставки.'>Выставка открылась в срок — 20+ художников на двух площадках, и вынужденное перераспределение работ в ходе монтажа не оставило следа в публичном восприятии. Зрители прочитали формат двух площадок как осознанный кураторский жест: перемещаясь между локациями, они физически проживали опыт наблюдения, который описывали работы. Производственное ограничение стало концептуальным стержнем выставки.</p>
           </div>
         </div>
       </div>
@@ -582,8 +582,8 @@
   langButtons.forEach(function(b){
     b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
   });
-  var saved = 'en';
-  try{ saved = localStorage.getItem('kira_lang') || 'en'; }catch(e){}
+  var saved = 'ru';
+  try{ saved = localStorage.getItem('kira_lang') || 'ru'; }catch(e){}
   setLang(saved);
 </script>
 </body>
